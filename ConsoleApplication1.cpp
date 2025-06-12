@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <windows.h>
 using namespace std;
 
@@ -77,6 +77,70 @@ public:
 		cout << "**********************************\n";
 	}
 
+	void SetName(string n) {
+		if (n != "Rich") {
+			name = n;
+		}
+		else {
+			cout << "The parrot's name is already Rich.\n";
+		}
+	}
+
+	void SetAge(int a) {
+		if (a > 0) {
+			age_in_month = a;
+		}
+		else {
+			cout << "Age cannot be negative or zero.\n";
+		}
+	}
+
+	void SetColor(string c) {
+		if (c != "blue") {
+			color = c;
+		}
+		else {
+			cout << "The parrot is already blue.\n";
+		}
+	}
+
+	void SetHeight(double h) {
+		if (h > 0) {
+			height = h;
+		}
+		else {
+			cout << "Height cannot be negative or zero.\n";
+		}
+	}
+
+	void SetNamberOfParrots(unsigned int n) {
+		if (n > 0) {
+			namber_of_parrots = n;
+		}
+		else {
+			cout << "Number of parrots cannot be negative or zero.\n";
+		}
+	}
+
+	string GetName() const {
+		return name;
+	}
+
+	int GetAge() const {
+		return age_in_month;
+	}
+
+	string GetColor() const {
+		return color;
+	}
+
+	double GetHeight() const {
+		return height;
+	}
+
+	unsigned int GetNamberOfParrots() const {
+		return namber_of_parrots;
+	}
 };
  
 // фіалка.
@@ -160,6 +224,71 @@ public:
 		cout << "Violet's age in months: " << age_in_months << "\n";
 		cout << "********************************\n";
 	}
+
+	void SetColor(string c) {
+		if (c != "purple") {
+			color = c;
+		}
+		else {
+			cout << "The violet's color is already purple.\n";
+		}
+	}
+
+	void SetFlowers(int f) {
+		if (f > 0) {
+			flowers = f;
+		}
+		else {
+			cout << "Number of flowers cannot be negative or zero.\n";
+		}
+	}
+
+	void SetNumberOfLeaves(int n) {
+		if (n > 0) {
+			number_of_leaves = n;
+		}
+		else {
+			cout << "Number of leaves cannot be negative or zero.\n";
+		}
+	}
+
+	void SetHeight(double h) {
+		if (h > 0) {
+			height = h;
+		}
+		else {
+			cout << "Height cannot be negative or zero.\n";
+		}
+	}
+
+	void SetAge(int a) {
+		if (a > 0) {
+			age_in_months = a;
+		}
+		else {
+			cout << "Age cannot be negative or zero.\n";
+		}
+	}
+
+	string GetColor() const {
+		return color;
+	}
+
+	int GetFlowers() const {
+		return flowers;
+	}
+
+	int GetNumberOfLeaves() const {
+		return number_of_leaves;
+	}
+
+	double GetHeight() const {
+		return height;
+	}
+
+	int GetAge() const {
+		return age_in_months;
+	}
 };
 
 // Синок.
@@ -239,12 +368,78 @@ public:
 		cout << "Son's knowledge: " << knowledge << "\n";
 		cout << "**********************************\n";
 	}
+
+	void SetName(string n) {
+		if (n != "Захар") {
+			name = n;
+		}
+		else {
+			cout << "Захар.\n";
+		}
+	}
+
+	void SetAge(double a) {
+		if (a > 0) {
+			age = a;
+		}
+		else {
+			cout << "Age cannot be negative or zero.\n";
+		}
+	}
+
+	void SetFamine(int f) {
+		if (f >= 0 && f <= 100) {
+			famine = f;
+		}
+		else {
+			cout << "Famine must be between 0 and 100.\n";
+		}
+	}
+
+	void SetHeight(double h) {
+		if (h > 0) {
+			height = h;
+		}
+		else {
+			cout << "Height cannot be negative or zero.\n";
+		}
+	}
+
+	void SetKnowledge(int k) {
+		if (k >= 0 && k <= 100) {
+			knowledge = k;
+		}
+		else {
+			cout << "Knowledge must be between 0 and 100.\n";
+		}
+	}
+
+	string GetName() const {
+		return name;
+	}
+
+	double GetAge() const {
+		return age;
+	}
+
+	int GetFamine() const {
+		return famine;
+	}
+
+	double GetHeight() const {
+		return height;
+	}
+
+	int GetKnowledge() const {
+		return knowledge;
+	}
 };
 
 // шафа.
 class wardrobe {
 	string color = "white";
 	int shelves = 12;
+	int doors = 3;
 	int close_doors = 3;
 	int open_doors = 0;
 	bool wardrobe_clean;
@@ -322,6 +517,71 @@ public:
 		cout << "Wardrobe's depth: " << depth << "\n";
 		cout << "**********************************\n";
 	}
+
+	void SetColor(string c) {
+		if (c != "white") {
+			color = c;
+		}
+		else {
+			cout << "The wardrobe's color is already white.\n";
+		}
+	}
+
+	void SetShelves(int s) {
+		if (s > 0) {
+			shelves = s;
+		}
+		else {
+			cout << "Number of shelves cannot be negative or zero.\n";
+		}
+	}
+
+	void SetDoors(int d) {
+		if (d > 0) {
+			doors = d;
+		}
+		else {
+			cout << "Number of doors cannot be negative or zero.\n";
+		}
+	}
+
+	void SetHeight(double h) {
+		if (h > 0) {
+			height = h;
+		}
+		else {
+			cout << "Height cannot be negative or zero.\n";
+		}
+	}
+
+	void SetWidth(double w) {
+		if (w > 0) {
+			width = w;
+		}
+		else {
+			cout << "Width cannot be negative or zero.\n";
+		}
+	}
+
+	string GetColor() const {
+		return color;
+	}
+
+	int GetShelves() const {
+		return shelves;
+	}
+
+	int GetDoors() const {
+		return doors;
+	}
+
+	double GetHeight() const {
+		return height;
+	}
+
+	double GetWidth() const {
+		return width;
+	}
 };
 
 // кондиціонер.
@@ -396,6 +656,71 @@ public:
 		cout << "Is the air conditioning on?" << is_on << "\n";
 		cout << "**********************************\n";
 	}
+
+	void SetBrand(string b) {
+		if (b != "Midea") {
+			brand = b;
+		}
+		else {
+			cout << "The air conditioning brand is already Midea.\n";
+		}
+	}
+
+	void SetTemperature(int t) {
+		if (t >= 16 && t <= 30) {
+			temperature = t;
+		}
+		else {
+			cout << "Temperature must be between 16 and 30 degrees.\n";
+		}
+	}
+
+	void SetHeight(double h) {
+		if (h > 0) {
+			hight = h;
+		}
+		else {
+			cout << "Height cannot be negative or zero.\n";
+		}
+	}
+
+	void SetWidth(double w) {
+		if (w > 0) {
+			width = w;
+		}
+		else {
+			cout << "Width cannot be negative or zero.\n";
+		}
+	}
+
+	void SetPower(int p) {
+		if (p >= 1500 && p <= 2000) {
+			power = p;
+		}
+		else {
+			cout << "Power should be between 1500 and 2000 watts.\n";
+		}
+	}
+
+	string GetBrand() const {
+		return brand;
+	}
+
+	int GetTemperature() const {
+		return temperature;
+	}
+
+	double GetHeight() const {
+		return hight;
+	}
+
+	double GetWidth() const {
+		return width;
+	}
+
+	int GetPower() const {
+		return power;
+	}
 };
 
 int main()
@@ -408,6 +733,17 @@ int main()
 	p.FeedParrot();
 	p.ParrotDrink();
 	p.PrintStateParrot();
+	p.SetName("Parrot");
+	p.SetAge(2);
+	p.SetColor("green");
+	p.SetHeight(15.0);
+	p.SetNamberOfParrots(2);
+	cout << "Parrot's name: " << p.GetName() << "\n";
+	cout << "Parrot's age in months: " << p.GetAge() << "\n";
+	cout << "Parrot's color: " << p.GetColor() << "\n";
+	cout << "Parrot's height: " << p.GetHeight() << "\n";
+	cout << "Number of parrots: " << p.GetNamberOfParrots() << "\n";
+
 
 	violet v;
 	v.WaterViolets();
@@ -415,6 +751,16 @@ int main()
 	v.AgeViolet();
 	v.VioletsOnSun();
 	v.PrintStateViolet();
+	v.SetColor("pink");
+	v.SetFlowers(10);
+	v.SetNumberOfLeaves(15);
+	v.SetHeight(12.0);
+	v.SetAge(10);
+	cout << "Violet's color: " << v.GetColor() << "\n";
+	cout << "Violet's flowers: " << v.GetFlowers() << "\n";
+	cout << "Violet's number of leaves: " << v.GetNumberOfLeaves() << "\n";
+	cout << "Violet's height: " << v.GetHeight() << "\n";
+	cout << "Violet's age in months: " << v.GetAge() << "\n";
 
 	Son S;
 	S.SunStudy();
@@ -423,6 +769,16 @@ int main()
 	S.Eat();
 	S.SonAge();
 	S.PrintStateSon();
+	S.SetName("Захар");
+	S.SetAge(8.0);
+	S.SetFamine(60);
+	S.SetHeight(115.0);
+	S.SetKnowledge(30);
+	cout << "Son's name: " << S.GetName() << "\n";
+	cout << "Son's age: " << S.GetAge() << "\n";
+	cout << "Son's famine: " << S.GetFamine() << "\n";
+	cout << "Son's height: " << S.GetHeight() << "\n";
+	cout << "Son's knowledge: " << S.GetKnowledge() << "\n";
 
 	wardrobe w;
 	w.OpenWardrobe();
@@ -430,6 +786,16 @@ int main()
 	w.CloseWardrobe();
 	w.WashWardrobe();
 	w.PrintStateWardrobe();
+	w.SetColor("black");
+	w.SetShelves(10);
+	w.SetDoors(4);
+	w.SetHeight(260.0);
+	w.SetWidth(270.0);
+	cout << "Wardrobe's color: " << w.GetColor() << "\n";
+	cout << "Wardrobe's shelves: " << w.GetShelves() << "\n";
+	cout << "Wardrobe's doors: " << w.GetDoors() << "\n";
+	cout << "Wardrobe's height: " << w.GetHeight() << "\n";
+	cout << "Wardrobe's width: " << w.GetWidth() << "\n";
 
 	air_conditioning ar;
 	ar.TurnOn();
@@ -437,4 +803,14 @@ int main()
 	ar.AirVentilation();
 	ar.AirHeating();
 	ar.PrintStateAirConditioning();
+	ar.SetBrand("Samsung");
+	ar.SetTemperature(22);
+	ar.SetHeight(32.0);
+	ar.SetWidth(90.0);
+	ar.SetPower(1850);
+	cout << "Air conditioning brand: " << ar.GetBrand() << "\n";
+	cout << "Air conditioning temperature: " << ar.GetTemperature() << "\n";
+	cout << "Air conditioning height: " << ar.GetHeight() << "\n";
+	cout << "Air conditioning width: " << ar.GetWidth() << "\n";
+	cout << "Air conditioning power: " << ar.GetPower() << "\n";
 }
