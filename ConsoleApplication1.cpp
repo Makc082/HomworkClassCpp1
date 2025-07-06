@@ -12,8 +12,85 @@ class Parrot {
     unsigned int namber_of_parrots = 1;
 	int feed = 50;
 	int water = 50;
+	string* learnedWords = nullptr;
+	unsigned int wordsCount = 0;
 
 public:
+
+	// конструктор без параметрів.
+	Parrot() : learnedWords(nullptr), wordsCount(0) {}
+
+	// головний конструктор.
+	Parrot(const string* words, unsigned int count) {
+		wordsCount = count;
+		learnedWords = new string[wordsCount];
+		for (unsigned int i = 0; i < wordsCount; ++i) {
+			learnedWords[i] = words[i];
+		}
+	}
+
+	// конструктор копіювання.
+	Parrot(const Parrot& original) {
+		wordsCount = original.wordsCount;
+		if (wordsCount > 0) {
+			learnedWords = new string[wordsCount];
+			for (unsigned int i = 0; i < wordsCount; ++i) {
+				learnedWords[i] = original.learnedWords[i];
+			}
+		}
+		else {
+			learnedWords = nullptr;
+		}
+	}
+
+	// деструктор.
+	~Parrot() {
+		if (learnedWords != nullptr) {
+			delete[] learnedWords;
+		}
+	}
+
+	// додавання слів.
+	void SetAddWords(const string* newWords, unsigned int count) {
+		if (newWords == nullptr || count == 0) {
+			cout << "No new words to add.\n";
+			return;
+		}	
+
+		string* temp = new string[wordsCount + count];
+		for (unsigned int i = 0; i < wordsCount; ++i) {
+			temp[i] = learnedWords[i];
+		}
+		for (unsigned int i = 0; i < count; ++i) {
+			temp[wordsCount + i] = newWords[i];
+		}
+		delete[] learnedWords;
+		learnedWords = temp;
+		wordsCount += count;
+
+	}
+
+	// гетер для отримання всіх слів.
+	const string* GetAllWords() const {
+		return learnedWords;
+	}
+
+	// гетер для кількості слів.
+	unsigned int GetWordsCount() const {
+		return wordsCount;
+	}
+
+	// показ вивчених слів.
+	void PrintLearnedWords() const {
+		if (learnedWords == nullptr || wordsCount == 0) {
+			cout << "The parrot has no learned words.\n";
+			return;
+		}
+		cout << "Learned words:\n";
+		for (unsigned int i = 0; i < wordsCount; ++i) {
+			cout << "- " << learnedWords[i] << "\n";
+		}
+	}
 
 	void OpenCage() {
 		string open_cage = "open";
@@ -299,8 +376,90 @@ class Son {
 	double height = 113.5;
 	int energy = 100;
 	int knowledge = 10;
+	string* likeGames = nullptr;
+	unsigned int gamesCount = 0;
 
 public:
+
+	// корструктор без параметрів.
+	Son() : likeGames(nullptr), gamesCount(0) {
+	
+	}
+
+	// головний конструктор.
+	Son(string* newGames, unsigned int count) {
+		gamesCount = count;
+		likeGames = new string[gamesCount];
+		for (unsigned int i = 0; i < gamesCount; ++i) {
+			likeGames[i] = newGames[i];
+		}
+	}
+
+	// конструктор копіювання.
+	Son(const Son& original) {
+		gamesCount = original.gamesCount;
+		if (gamesCount > 0) {
+			likeGames = new string[gamesCount];
+			for (int i = 0; i < gamesCount; ++i) {
+				likeGames[i] = original.likeGames[i]; 
+			}
+		}
+		else {
+			likeGames = nullptr;
+		}
+	}
+
+	// деструктор.
+	~Son() {
+		if (likeGames != nullptr) {
+			delete[] likeGames;
+		}
+	}
+
+	// додавання ігор.
+	void SetGames(const string* games, unsigned int count) {
+		if (games == nullptr || count == 0) {
+			cout << "No games to add.\n";
+			return;
+		}
+
+		string* temp = new string[gamesCount + count];
+		for (unsigned int i = 0; i < gamesCount; ++i) {
+			temp[i] = likeGames[i];
+		}
+		
+		for (unsigned int i = 0; i < count; ++i) {
+			temp[gamesCount + i] = games[i];
+		}
+
+		delete[] likeGames;
+
+		likeGames = temp;
+		gamesCount += count;
+	}
+
+	// гетер для отримання ігор.
+	const string* GetAllGames() const {
+		return likeGames;
+	}
+
+	// гетер для кількості
+	int GetGamesCount() const {
+		return gamesCount;
+	}
+
+	void PrintGames() const {
+		if (likeGames == nullptr || gamesCount == 0) {
+			cout << "The son has no favorite games.\n";
+			return;
+		}
+
+		cout << "Son likes these games:\n";
+		for (int i = 0; i < gamesCount; ++i) {
+			cout << "- " << likeGames[i] << "\n";
+		}
+	}
+
 
 	void SunStudy() {
 		if (knowledge < 100) {
@@ -744,6 +903,17 @@ int main()
 	cout << "Parrot's height: " << p.GetHeight() << "\n";
 	cout << "Number of parrots: " << p.GetNamberOfParrots() << "\n";
 
+	Parrot p1;
+	p1.PrintLearnedWords();
+	string words[] = { "Rich", "Good boy", "Eat" }; // масив вивчених слів папуги.
+	Parrot p2(words, 3);
+	p2.PrintLearnedWords();
+	Parrot p3 = p2; // конструктор копіювання
+	p3.PrintLearnedWords();
+	string newWords[] = { "Hello", "Goodbye", "Thank you" }; // додавання нових слів.
+	p2.SetAddWords(newWords, 3);
+	p2.PrintLearnedWords();
+
 
 	violet v;
 	v.WaterViolets();
@@ -779,6 +949,17 @@ int main()
 	cout << "Son's famine: " << S.GetFamine() << "\n";
 	cout << "Son's height: " << S.GetHeight() << "\n";
 	cout << "Son's knowledge: " << S.GetKnowledge() << "\n";
+
+	Son son1;
+	son1.PrintGames();
+	string likeGames[] = { "Minecraft", "Roblox", "Fortnite" };// масив улюблених ігор сина.
+	Son son2(likeGames, 3);
+	son2.PrintGames();
+	Son son3 = son2; // конструктор копіювання
+	son3.PrintGames();
+	string newGames[] = { "FIFA", "Snake" };// додавання нових ігор.
+	son2.SetGames(newGames, 2);
+	son2.PrintGames();
 
 	wardrobe w;
 	w.OpenWardrobe();
